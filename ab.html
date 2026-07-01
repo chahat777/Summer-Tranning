@@ -1,0 +1,73 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Examples</title>
+</head>
+<body>
+    <button onclick="show()">Click Me</button>
+
+    <div id="array-output"></div>
+    <div id="object-output"></div>
+
+    <script>
+        function show() {
+            alert("Hello!");
+        }
+
+        let fruits = ["Apple", "Banana", "Mango"];
+        document.getElementById("array-output").innerHTML =
+            "First Fruit: " + fruits[0] + "<br>" +
+            "Second Fruit: " + fruits[1] + "<br>" +
+            "Third Fruit: " + fruits[2] + "<br>";
+
+        let student = {
+            name: "Chahat",
+            age: 19,
+            course: "B.tech"
+        };
+        document.getElementById("object-output").innerHTML =
+            "Name: " + student.name + "<br>" +
+            "Age: " + student.age + "<br>" +
+            "Course: " + student.course;
+    </script>
+</body>
+</html>-->
+
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<body>
+
+<label for="n">Name:</label>
+<input id="n" title="Enter student name" placeholder="Enter name"><br><br>
+<label for="m1">Marks 1:</label>
+<input id="m1" title="Enter marks for subject 1" placeholder="Marks 1">
+<label for="m2">Marks 2:</label>
+<input id="m2" title="Enter marks for subject 2" placeholder="Marks 2">
+<label for="m3">Marks 3:</label>
+<input id="m3" title="Enter marks for subject 3" placeholder="Marks 3"><br><br>
+
+<button onclick="r()">Result</button>
+
+<p id="a"></p>
+
+<script>
+function r(){
+let n=document.getElementById("n").value;
+let a=+m1.value,b=+m2.value,c=+m3.value;
+let t=a+b+c,p=t/3;
+document.getElementById("a").innerHTML=
+"Name: "+n+"<br>Total: "+t+
+"<br>Percentage: "+p.toFixed(2)+"%"+
+"<br>"+(p>=33?"PASS":"FAIL");
+}
+</script>
+
+</body>
+</html>

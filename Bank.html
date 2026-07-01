@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Banking App</title>
+</head>
+<body>
+
+<h2>Bank Withdrawal System</h2>
+
+<label for="balance">Balance:</label>
+<input type="number" id="balance" title="Balance" placeholder="Enter balance"><br><br>
+
+<label for="amount">Amount:</label>
+<input type="number" id="amount" title="Withdrawal amount" placeholder="Enter amount"><br><br>
+
+<label for="premium">Premium Customer:</label>
+<select id="premium" title="Premium customer status">
+    <option value="false">No</option>
+    <option value="true">Yes</option>
+</select><br><br>
+
+<button onclick="checkWithdrawal()">Check</button>
+
+<h3 id="result"></h3>
+
+<script>
+
+function checkWithdrawal(){
+
+    let balance = Number(document.getElementById("balance").value);
+    let amount = Number(document.getElementById("amount").value);
+    let isPremium = document.getElementById("premium").value == "true";
+
+    let MIN_BALANCE = isPremium ? 500 : 2000;
+    let MAX_WITHDRAW = isPremium ? 100000 : 25000;
+
+    if(amount <= 0){
+        document.getElementById("result").innerHTML="❌ Invalid Amount";
+    }
+    else if(amount > MAX_WITHDRAW){
+        document.getElementById("result").innerHTML="❌ Daily Limit ₹"+MAX_WITHDRAW;
+    }
+    else if(balance - amount < MIN_BALANCE){
+        document.getElementById("result").innerHTML="❌ Minimum Balance ₹"+MIN_BALANCE+" Required";
+    }
+    else{
+        let newBalance = balance - amount;
+        document.getElementById("result").innerHTML=
+        "✅ Withdrawal Successful<br>" +
+        "Withdraw Amount: ₹"+amount+"<br>" +
+        "Remaining Balance: ₹"+newBalance;
+    }
+
+}
+
+</script>
+
+</body>
+</html>

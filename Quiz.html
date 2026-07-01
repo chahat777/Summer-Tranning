@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Online Quiz</title>
+</head>
+<body>
+
+<h2>General Knowledge Quiz</h2>
+
+<form id="quiz">
+
+<p>1. What is the Capital of India?</p>
+<label><input type="radio" id="q1a" name="q1" value="A"> Mumbai</label><br>
+<label><input type="radio" id="q1b" name="q1" value="B"> New Delhi</label><br>
+<label><input type="radio" id="q1c" name="q1" value="C"> Kolkata</label><br>
+<label><input type="radio" id="q1d" name="q1" value="D"> Chennai</label><br>
+
+<p>2. National Animal of India?</p>
+<label><input type="radio" id="q2a" name="q2" value="A"> Tiger</label><br>
+<label><input type="radio" id="q2b" name="q2" value="B"> Lion</label><br>
+<label><input type="radio" id="q2c" name="q2" value="C"> Elephant</label><br>
+<label><input type="radio" id="q2d" name="q2" value="D"> Deer</label><br>
+
+<p>3. HTML stands for?</p>
+<label><input type="radio" id="q3a" name="q3" value="A"> Hyper Text Markup Language</label><br>
+<label><input type="radio" id="q3b" name="q3" value="B"> High Text Machine Language</label><br>
+<label><input type="radio" id="q3c" name="q3" value="C"> Home Tool Markup Language</label><br>
+<label><input type="radio" id="q3d" name="q3" value="D"> Hyper Transfer Language</label><br>
+
+<p>4. CSS is used for?</p>
+<label><input type="radio" id="q4a" name="q4" value="A"> Programming</label><br>
+<label><input type="radio" id="q4b" name="q4" value="B"> Styling Web Pages</label><br>
+<label><input type="radio" id="q4c" name="q4" value="C"> Database</label><br>
+<label><input type="radio" id="q4d" name="q4" value="D"> Networking</label><br>
+
+<p>5. JavaScript is a?</p>
+<label><input type="radio" id="q5a" name="q5" value="A"> Database</label><br>
+<label><input type="radio" id="q5b" name="q5" value="B"> Scripting Language</label><br>
+<label><input type="radio" id="q5c" name="q5" value="C"> Browser</label><br>
+<label><input type="radio" id="q5d" name="q5" value="D"> Operating System</label><br>
+
+<p>6. Which tag is used to insert an image?</p>
+<label><input type="radio" id="q6a" name="q6" value="A"> img</label><br>
+<label><input type="radio" id="q6b" name="q6" value="B"> image</label><br>
+<label><input type="radio" id="q6c" name="q6" value="C"> src</label><br>
+<label><input type="radio" id="q6d" name="q6" value="D"> pic</label><br>
+
+<p>7. Which symbol is used for comments in JavaScript?</p>
+<label><input type="radio" id="q7a" name="q7" value="A"> &lt;!-- --&gt;</label><br>
+<label><input type="radio" id="q7b" name="q7" value="B"> //</label><br>
+<label><input type="radio" id="q7c" name="q7" value="C"> ##</label><br>
+<label><input type="radio" id="q7d" name="q7" value="D"> **</label><br>
+
+<p>8. Which company developed JavaScript?</p>
+<label><input type="radio" id="q8a" name="q8" value="A"> Microsoft</label><br>
+<label><input type="radio" id="q8b" name="q8" value="B"> Netscape</label><br>
+<label><input type="radio" id="q8c" name="q8" value="C"> Google</label><br>
+<label><input type="radio" id="q8d" name="q8" value="D"> Apple</label><br>
+
+<p>9. Which method displays a message box?</p>
+<label><input type="radio" id="q9a" name="q9" value="A"> alert()</label><br>
+<label><input type="radio" id="q9b" name="q9" value="B"> print()</label><br>
+<label><input type="radio" id="q9c" name="q9" value="C"> write()</label><br>
+<label><input type="radio" id="q9d" name="q9" value="D"> display()</label><br>
+
+<p>10. Which keyword is used to declare a variable?</p>
+<label><input type="radio" id="q10a" name="q10" value="A"> var</label><br>
+<label><input type="radio" id="q10b" name="q10" value="B"> int</label><br>
+<label><input type="radio" id="q10c" name="q10" value="C"> string</label><br>
+<label><input type="radio" id="q10d" name="q10" value="D"> float</label><br><br>
+
+<input type="button" value="Submit Quiz" onclick="checkQuiz()">
+
+</form>
+
+<hr>
+
+<div id="result"></div>
+
+<script>
+
+function checkQuiz(){
+
+let answer={
+q1:"B",
+q2:"A",
+q3:"A",
+q4:"B",
+q5:"B",
+q6:"A",
+q7:"B",
+q8:"B",
+q9:"A",
+q10:"A"
+};
+
+let score=0;
+let output="<h2>Result</h2>";
+
+for(let q in answer){
+
+let user=document.querySelector('input[name="'+q+'"]:checked');
+
+if(user){
+
+if(user.value==answer[q]){
+
+score++;
+output+="<p>"+q+" : Correct ✅</p>";
+
+}
+
+else{
+
+output+="<p>"+q+" : Wrong ❌ | Correct Answer : "+answer[q]+"</p>";
+
+}
+
+}
+
+else{
+
+output+="<p>"+q+" : Not Attempted ❌</p>";
+
+}
+
+}
+
+output+="<h2>Total Marks : "+score+"/10</h2>";
+
+document.getElementById("result").innerHTML=output;
+
+}
+
+</script>
+
+</body>
+</html>
+
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Quiz</title>
+</head>
+<body>
+
+<h2>General Knowledge Quiz</h2>
+
+<form>
+
+<p>1. What is the capital of India?</p>
+<label><input type="radio" id="q1a" name="q1" value="Mumbai"> Mumbai</label><br>
+<label><input type="radio" id="q1b" name="q1" value="Kolkata"> Kolkata</label><br>
+<label><input type="radio" id="q1c" name="q1" value="New Delhi"> New Delhi</label><br>
+<label><input type="radio" id="q1d" name="q1" value="Chennai"> Chennai</label><br>
+
+<p>2. Which is the national animal of India?</p>
+<label><input type="radio" id="q2a" name="q2" value="Lion"> Lion</label><br>
+<label><input type="radio" id="q2b" name="q2" value="Tiger"> Tiger</label><br>
+<label><input type="radio" id="q2c" name="q2" value="Elephant"> Elephant</label><br>
+<label><input type="radio" id="q2d" name="q2" value="Deer"> Deer</label><br>
+
+<p>3. Which planet is known as the Red Planet?</p>
+<label><input type="radio" id="q3a" name="q3" value="Earth"> Earth</label><br>
+<label><input type="radio" id="q3b" name="q3" value="Mars"> Mars</label><br>
+<label><input type="radio" id="q3c" name="q3" value="Venus"> Venus</label><br>
+<label><input type="radio" id="q3d" name="q3" value="Jupiter"> Jupiter</label><br>
+
+<p>4. Who is known as the Father of the Nation?</p>
+<label><input type="radio" id="q4a" name="q4" value="Bhagat Singh"> Bhagat Singh</label><br>
+<label><input type="radio" id="q4b" name="q4" value="Mahatma Gandhi"> Mahatma Gandhi</label><br>
+<label><input type="radio" id="q4c" name="q4" value="Jawaharlal Nehru"> Jawaharlal Nehru</label><br>
+<label><input type="radio" id="q4d" name="q4" value="Subhash Chandra Bose"> Subhash Chandra Bose</label><br>
+
+<p>5. Which is the largest ocean?</p>
+<label><input type="radio" id="q5a" name="q5" value="Indian Ocean"> Indian Ocean</label><br>
+<label><input type="radio" id="q5b" name="q5" value="Atlantic Ocean"> Atlantic Ocean</label><br>
+<label><input type="radio" id="q5c" name="q5" value="Pacific Ocean"> Pacific Ocean</label><br>
+<label><input type="radio" id="q5d" name="q5" value="Arctic Ocean"> Arctic Ocean</label><br>
+
+<p>6. Which is the national bird of India?</p>
+<label><input type="radio" id="q6a" name="q6" value="Crow"> Crow</label><br>
+<label><input type="radio" id="q6b" name="q6" value="Peacock"> Peacock</label><br>
+<label><input type="radio" id="q6c" name="q6" value="Sparrow"> Sparrow</label><br>
+<label><input type="radio" id="q6d" name="q6" value="Parrot"> Parrot</label><br>
+
+<p>7. HTML stands for?</p>
+<label><input type="radio" id="q7a" name="q7" value="Hyper Text Markup Language"> Hyper Text Markup Language</label><br>
+<label><input type="radio" id="q7b" name="q7" value="High Text Machine Language"> High Text Machine Language</label><br>
+<label><input type="radio" id="q7c" name="q7" value="Hyper Transfer Markup Language"> Hyper Transfer Markup Language</label><br>
+<label><input type="radio" id="q7d" name="q7" value="Home Tool Markup Language"> Home Tool Markup Language</label><br>
+
+<p>8. CSS is used for?</p>
+<label><input type="radio" id="q8a" name="q8" value="Programming"> Programming</label><br>
+<label><input type="radio" id="q8b" name="q8" value="Styling Web Pages"> Styling Web Pages</label><br>
+<label><input type="radio" id="q8c" name="q8" value="Database"> Database</label><br>
+<label><input type="radio" id="q8d" name="q8" value="Networking"> Networking</label><br>
+
+<p>9. JavaScript is a?</p>
+<label><input type="radio" id="q9a" name="q9" value="Database"> Database</label><br>
+<label><input type="radio" id="q9b" name="q9" value="Scripting Language"> Scripting Language</label><br>
+<label><input type="radio" id="q9c" name="q9" value="Operating System"> Operating System</label><br>
+<label><input type="radio" id="q9d" name="q9" value="Browser"> Browser</label><br>
+
+<p>10. Which tag is used to create a hyperlink?</p>
+<label><input type="radio" id="q10a" name="q10" value="p"> &lt;p&gt;</label><br>
+<label><input type="radio" id="q10b" name="q10" value="a"> &lt;a&gt;</label><br>
+<label><input type="radio" id="q10c" name="q10" value="img"> &lt;img&gt;</label><br>
+<label><input type="radio" id="q10d" name="q10" value="table"> &lt;table&gt;</label><br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+
+</body>
+</html>  -->
+ 

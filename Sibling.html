@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<p id="first">First Paragraph</p>
+<p id="second">Second Paragraph</p>
+
+<script>
+let x = document.getElementById("first").nextElementSibling;
+x.style.color = "red";
+</script>
+
+</body>
+</html>
+
+<!DOCTYPE html>
+<html>
+<body>
+
+<p id="first">First Paragraph</p>
+<p id="second">Second Paragraph</p>
+
+<script>
+let x = document.getElementById("second").previousElementSibling;
+x.style.color = "blue";
+</script>
+
+</body>
+</html>
